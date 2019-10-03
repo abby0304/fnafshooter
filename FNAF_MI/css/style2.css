@@ -1,0 +1,252 @@
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+body{
+  background: black;
+}
+
+#contentInput, #playgame, #scoregame, #optionsgame {
+   position: absolute;
+   top: 170px;
+}
+
+#BackgroudImage {
+width: 100%;
+height: 100%;
+position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+background-repeat: no-repeat; height: 100%;
+background-size: cover;
+}
+
+/*Play*/
+#stopVideojuego {
+  position:relative;
+  height:50px;
+  width:60px;
+  background:#006680;
+  text-align:center;
+  font-size:30px;
+ background-size: 1px 300%;
+ -webkit-transition:0.5s;
+  transition:0.5s;
+  color:orange;
+  font-family:shadows into light;
+
+  cursor:pointer;
+}
+
+#stopVideojuego:hover {
+  background:#7A0000;
+  color:white;
+-webkit-transform:rotate(-1deg);
+  transform:rotate(-2deg); 
+}
+
+#stopVideojuego p {
+  position:relative;
+  top:2px;
+  right:4px; 
+    opacity: 1;
+}
+
+/*Single*/
+.design {
+  position:relative;
+  height:50px;
+  width:600px;
+  background:#006680;
+  text-align:center;
+  font-size:30px;
+  background-size: 1px 300%;
+  -webkit-transition:0.5s;
+  transition:0.5s;
+  color:orange;
+  font-family:shadows into light;
+
+  cursor:pointer;
+}
+
+.design:hover {
+  background:#7A0000;
+  color:white;
+-webkit-transform:rotate(-1deg);
+  transform:rotate(-2deg); 
+}
+
+.design p {
+  position:relative;
+  top:2px;
+  right:4px; 
+    opacity: 1;
+}
+
+/*Multiplayer*/
+#score {
+  height:50px;
+  width:500px;
+  
+}
+
+/*Opcions*/
+#options {
+  height:50px;
+  width:400px;
+}
+
+
+/*Credists*/
+#settings {
+  height:50px;
+  width:300px;
+  position:relative;
+  background:#006680;
+  font-size:30px;
+  text-align:center;
+  font-family:shadows into light;
+   -webkit-transition:0.5s;
+  transition:0.5s;
+  cursor:pointer;
+  
+}
+
+#facebook, #twitter, #instagram {
+  color:orange;
+}
+
+#settings p {
+  position:relative;
+  top:0px;
+  
+}
+
+
+.fa:hover {  
+  color:#7A0000; 
+}
+
+a{
+  color:orange;
+}
+
+
+a:hover{
+   color:white;
+}
+
+
+/*Multiplayer*/
+#multiplayer {
+  height:50px;
+  width:500px;
+}
+
+/*Opcions*/
+.return {
+  
+  height:50px;
+  width:400px;
+  background:#006680;
+  position:relative;
+  font-size:30px;
+  text-align:center;
+  font-family:shadows into light;
+  color:orange;
+   -webkit-transition:0.5s;
+  transition:0.5s;
+  cursor:pointer;
+  
+}
+
+.return p {
+  position:relative;
+  top:0px;
+  right:4px;
+  
+}
+.return:hover {
+  background:#7A0000;
+  color:white;
+  -webkit-transform:rotate(-2deg);
+  transform:rotate(-2deg);
+  
+}
+
+/*Score*/
+#scoregame, #optionsgame {
+  
+  height:50px;
+  width:500px;
+  background:#7A0000;
+  position:relative;
+  font-size:30px;
+  text-align:center;
+  font-family:shadows into light;
+  color:white;
+   -webkit-transition:0.5s;
+  transition:0.5s;
+  cursor:pointer;
+  
+}
+
+
+
+#box_Score {
+  
+background-color: black;
+  width: 500px;
+  height: 310px;
+  overflow: auto;
+}
+
+
+/* end .slideTwo */
+/* .slideThree */
+.slideThree {
+  width: 80px;
+  height: 26px;
+  background: #333;
+  position: relative;
+   margin: 20px auto;
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+.slideThree:after {
+  content: 'OFF';
+  color: #000;
+  position: absolute;
+  right: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+}
+.slideThree:before {
+  content: 'ON';
+  color: #27ae60;
+  position: absolute;
+  left: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+}
+.slideThree label {
+  display: block;
+  width: 34px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 1;
+  background: #fcfff4;
+  background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.slideThree input[type=checkbox] {
+  visibility: hidden;
+}
+.slideThree input[type=checkbox]:checked + label {
+  left: 43px;
+}
+

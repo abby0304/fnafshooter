@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Game Menu</title>
+  <link rel="stylesheet" href="css/style2.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!--JQuery-->
+  <script>
+    $(document).ready(function(){
+      $("#play").click(function(){
+       $("#contentInput").hide();
+       $("#playgame").show();
+      });
+
+      $(".return").click(function(){
+       $("#playgame").hide();
+       $("#scoregame").hide();
+       $("#optionsgame").hide();
+       $("#contentInput").show();
+      });
+
+       $("#score").click(function(){
+         $("#contentInput").hide();
+         $("#scoregame").show();
+       });
+
+      $("#options").click(function(){
+       $("#contentInput").hide();
+       $("#optionsgame").show();
+     });
+	 
+	 $("#facebook").click(function(){
+       $("#facebook").attr("href", "https://www.facebook.com/FNAFreddys/");
+     }); 
+
+
+    $("#twitter").click(function(){
+       $("#twitter").attr("href", "https://twitter.com/fnafnoticias?lang=es");
+     }); 
+
+     $("#instagram").click(function(){
+       $("#instagram").attr("href", "https://www.instagram.com/fivenightsatfreddys.games/?hl=es-la");
+     }); 
+	 
+    });
+  </script>
+
+</head>
+<body>
+
+<div id="allthethings" >
+  <div id="BackgroudImage" style="background-image: url(css/source.gif)";></div>
+  <div id="contentInput" >
+  	<div id="play" class="design"><p>PLAY GAME</p></div>
+    <div id="score" class="design"><p>SCORE</p></div>
+    <div id="options" class="design"><p>SETTINGS</p></div>
+    <div id="settings">
+	  <p>
+    <a id="facebook" target="_blank"><i class="fa fa-facebook" style="font-size:24px;"></i></a>
+    <a id="twitter" target="_blank"><i class="fa fa-twitter" style="font-size:24px;"></i></a>
+    <a id="instagram" target="_blank"><i class="fa fa-instagram" style="font-size:24px;"></i></a>
+	  </p>
+	  </div>
+	</div>
+  </div>
+
+  <div id="playgame" style="display: none;">
+    <div class="design"><p><a href="scene1.html" style="text-decoration:none;">SINGLE PLAYER</a></p></div>
+    <div id="multiplayer" class="design"><p>MULTIPLAYER</p></div>
+    <div class="return"><p>RETURN</p></div>
+  </div>
+
+  <div id="scoregame" style="display: none;">
+     <p>SCORE</p>
+     <div id="box_Score"> 
+     <p>Jugador 1</p>
+     <p>Jugador 2</p>
+     <p>Jugador 3</p>
+     <p>Jugador 4</p>
+     <p>Jugador 5</p>
+     <p>Jugador 6</p>
+     </div>
+     <div class="return"><p>RETURN</p></div>
+  </div>
+
+   <div id="optionsgame" style="display: none;">
+     <p>SETTINGS</p> <p>SOUND</p>
+     <div class="slideThree">  
+      <input type="checkbox" value="None" id="slideThree" name="check" checked />
+      <label for="slideThree"></label>
+    </div>
+    <p>MUSIC</p>
+    <div class="slideThree">  
+      <input type="checkbox" value="None" id="slideThree2" name="check" checked />
+      <label for="slideThree2"></label>
+    </div>
+     <div class="return"><p>RETURN</p></div>
+  </div>
+ 
+ 
+</div>
+  
+</body>
+
+</html>

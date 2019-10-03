@@ -1,0 +1,189 @@
+<html>
+<head>
+    <title>threejs - models</title>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+    	body{
+    		 margin: 0;
+            overflow: hidden;
+    	}
+    </style>
+     <link rel="stylesheet" href="css/style2.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="js/jquery-3.4.1.min.js"></script>
+
+
+     
+</head>
+<body>
+
+    <canvas id="myCanvas"></canvas>
+
+    <script src="js/three.js"></script>
+    <script src="GLTFLoader.js"></script>
+
+
+  
+  <div id="contentInput" style="top:85%; right:40%;">
+    <div id="options" class="design"><p> START</p></div>
+
+  </div> 
+
+  <div id="contentInput2" style="position:absolute; top:0%; right:35%;">
+     <div id="scoregame" >
+      <p> BIENVENDO A FNAF SHOOTER</p>
+      <p>MODO JUGAR</p>
+      <p>PRESIONA LAS TECLAS</p>
+      <p>P - DISPARAR</p>
+      <p>MOUSE - MOVER CAMARA</p>
+     </div>
+  </div>
+
+ 
+
+  <div id="contentInput3" style="position:absolute;top:30%; right:35%; display: none;">
+     <div id="score" class="design"><p> RESTART</p></div>
+     <div id="play" class="design" onclick="location.href='index.html';" style="left: 10%;"><p>SALIR</p></div>
+  </div>
+
+
+
+    <script>
+
+var renderer,
+	scene,
+	camera,
+	myCanvas = document.getElementById('myCanvas');
+
+// Boolean for start and restart
+var initAnim = true;
+var runAnim = false;
+var isPlay = false;
+var theta = 0;
+
+var delta = 0;
+
+//Modelos
+var mesh;
+
+init();
+render();
+
+
+function init() {
+
+  var startButton = document.getElementById( 'options' );
+  var modojugar = document.getElementById( 'contentInput2' );
+  var menupausa = document.getElementById( 'contentInput3' );
+  var botonpausa=  document.getElementById( 'score' );
+
+
+
+
+ // Start Button
+  startButton.onclick = function StartAnimation() {
+
+  if (initAnim) {
+    initAnim = false;
+    runAnim = true;
+    theta = 0;
+  }
+  // Start and Pause 
+  if (runAnim) { 
+    startButton.innerHTML = 'PAUSE';
+    modojugar.style.display = "none";
+
+    runAnim = false;
+    isPlay = true;
+    animate();
+    } else {
+          menupausa.style.display = "block";
+          startButton.style.display = "none";
+
+          runAnim = true;
+          isPlay = false;
+    }
+  }
+
+  // Start Button
+  botonpausa.onclick = function StartAnimation() {
+
+  // Start and Pause 
+  if (runAnim) { 
+    menupausa.style.display = "none";
+    startButton.style.display = "block";
+    runAnim = false;
+    isPlay = true;
+    animate();
+    } else {
+          menupausa.style.display = "block";
+          startButton.style.display = "none";
+
+          runAnim = true;
+          isPlay = false;
+    }
+  }
+
+    //RENDERER
+    renderer = new THREE.WebGLRenderer({
+      canvas: myCanvas, 
+      antialias: true
+    });
+    renderer.setClearColor(0x000000);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    //CAMERA
+    camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+    //SCENE
+    scene = new THREE.Scene();
+
+    //LIGHTS
+    var light = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(light);
+
+    var light2 = new THREE.PointLight(0xffffff, 0.5);
+    scene.add(light2);     
+
+
+    //MODELO1
+    var loader = new THREE.GLTFLoader();
+
+    loader.load('marioneta/scene.gltf', handle_load);
+
+
+    function handle_load(gltf) {
+
+        console.log(gltf);
+        mesh = gltf.scene;
+        console.log(mesh.children[0]);
+        mesh.children[0].material = new THREE.MeshLambertMaterial();
+		scene.add( mesh );
+        mesh.position.z = -30;
+        mesh.position.x = 10;
+     
+    }
+   
+}
+
+function animate(delta) {
+console.log(runAnim);
+    if (!isPlay) return;
+    requestAnimationFrame(animate);
+    theta += 0.01;
+    render();
+}
+
+function render() {
+    mesh.rotation.y = theta;
+    renderer.render(scene, camera);
+}
+    </script>
+</body>
+</html>
